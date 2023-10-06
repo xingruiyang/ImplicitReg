@@ -1,0 +1,1 @@
+Code used to draw random ShapeNet models. This is derived from DeepSDF's sampling method. We check the model's completeness to make sure they are watertight. Perhaps not the perfect solution but helps to reduce the number of bad samples.

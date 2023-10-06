@@ -1,0 +1,63 @@
+{
+    "params": {
+        "latent_dim": 128,
+        "hidden_dims": [
+            128,
+            128,
+            128,
+            128
+        ],
+        "use_tanh": true,
+        "geometric_init": true,
+        "clamp_dist": 0.1,
+        "loss_fn": "l1",
+        "act_fn": "leaky_relu",
+        "optimizer": "Adam",
+        "use_gradients": false,
+        "freeze_decoder": false,
+        "gradient_weight": 1e-2,
+        "latent_reg_weight": 5e-3
+    },
+    "train": {
+        "schedualers": {
+            "model": {
+                "type": "manual",
+                "param": {
+                    "start": 1e-3,
+                    "step": [
+                        10,
+                        15
+                    ],
+                    "lr": [
+                        1e-4,
+                        1e-5
+                    ]
+                }
+            },
+            "latent": {
+                "type": "manual",
+                "param": {
+                    "start": 5e-4,
+                    "step": [
+                        10,
+                        15
+                    ],
+                    "lr": [
+                        5e-5,
+                        5e-6
+                    ]
+                }
+            }
+        },
+        "dataset": {
+            "name": "SDFSamples",
+            "args": {
+                "subsample": 512
+            }
+        },
+        "num_epoch": 1000,
+        "batch_size": 8000,
+        "mini_batch": 200,
+        "ckpt_frequency": 1
+    }
+}

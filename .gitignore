@@ -1,0 +1,8 @@
+__pycache__
+*.pth
+*.npz
+data/
+build/
+.temp
+*.egg-info
+.vscode
